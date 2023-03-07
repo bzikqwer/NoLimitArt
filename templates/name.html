@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="grid">
+        <header class="header">
+
+            <h4>Different world...</h4>
+            <img class="header__logo" src="/static/images/images/Icon-logo.PNG" alt="Логотип воздушный шар">
+            <h4>through special eyes</h4>
+        </header>
+        <main class="main">
+            <section class="section1">
+                <div class="image-container">
+                    <img class="user-foto" src="/static/images/{{ user.photo }}">
+                </div>
+                <h1>{{ user.username }}</h1>
+                <div class="grid-text">
+                    <div class="h1">Диагноз:{{ user.username }}</div>
+                    <div class="h1">Продано работ:{{ user.username }}</div>
+                    <div class="h1">Заработано:{{ user.username }}</div>
+                </div>
+
+            </section>
+
+            <section class="section2">
+                {% for photo in photos %}
+
+                <img class="user-foto2" src="/static/images/{{ photo.photo }}"> {% endfor %}
+            </section>
+        </main>
+        <footer class="footer">
+
+            <a href={{ user.fb }}>{{ user.fb }}</a>
+            <a>{{ user.insta }}</a>
+            <a>{{ user.twitter }}</a>
+        </footer>
+    </div>
+</body>
+
+</html>
