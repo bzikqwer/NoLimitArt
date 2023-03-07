@@ -17,6 +17,9 @@ class Users(db.Model):
     insta = db.Column(db.String(120), unique=True)
     twitter = db.Column(db.String(120), unique=True)
     photo = db.Column(db.String(255))
+    sold = db.Column(db.String(255))
+    earned = db.Column(db.String(255))
+    diagnosis = db.Column(db.String(255))
     photos = db.relationship('Photos', backref='user', lazy=True)
 
 class Photos(db.Model):
@@ -25,7 +28,8 @@ class Photos(db.Model):
     photo = db.Column(db.String(255))
 
 class UsersView(ModelView):
-    column_list = ('id', 'username', 'fb', 'insta', 'photo', 'twitter')
+    column_list = ('id', 'username', 'fb', 'insta', 'photo', 'twitter','sold','earned','diagnosis')
+    column_labels = {'sold':'Продано','earned':'Заработано','diagnosis':'Диагноз'}
     form_extra_fields = {
         'photo': FileUploadField('Photo', base_path='static/images', relative_path='images/')
     }
