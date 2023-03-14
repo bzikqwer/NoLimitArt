@@ -4,6 +4,8 @@ from flask_admin.contrib.sqla import ModelView
 from flask_admin.contrib.sqla.fields import QuerySelectField
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin.form.upload import FileUploadField
+import random
+import string
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -20,7 +22,7 @@ class Users(db.Model):
     sold = db.Column(db.String(255))
     earned = db.Column(db.String(255))
     diagnosis = db.Column(db.String(255))
-    photos = db.relationship('Photos', backref='user', lazy=True)
+    photos = db.relationship('Photos', backref='user', lazy=True, cascade='all,delete')
 
 class Photos(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -30,10 +32,15 @@ class Photos(db.Model):
 class UsersView(ModelView):
     column_list = ('id', 'username', 'fb', 'insta', 'photo', 'twitter','sold','earned','diagnosis')
     column_labels = {'sold':'Продано','earned':'Заработано','diagnosis':'Диагноз'}
+
+
+
     form_extra_fields = {
-        'photo': FileUploadField('Photo', base_path='static/images', relative_path='images/')
+        'photo': FileUploadField('Photo', base_path='static/images', relative_path='userslogo' + str(''.join(random.choices(string.ascii_letters + string.digits, k=10)))+'/')
     }
     create_template = 'create_user.html'
+
+
     def is_accessible(self):
         return session.get('logged_in')
 
@@ -41,10 +48,13 @@ class PhotosView(ModelView):
     column_list = ('id', 'photo', 'user')
     column_formatters = {'user': lambda view, context, model, name: model.user.username}
     form_extra_fields = {
-        'photo': FileUploadField('Photo', base_path='static/images', relative_path='images/'),
+        'photo': FileUploadField('Photo', base_path='static/images', relative_path='usersfoto'+ str(''.join(random.choices(string.ascii_letters + string.digits, k=10)))+'/'),
         'user': QuerySelectField('User', query_factory=lambda: Users.query.all(), get_label='username')
     }
     create_template = 'create_photo.html'
+
+
+
     def is_accessible(self):
         return session.get('logged_in')
 
@@ -71,16 +81,12 @@ def logout():
     session.pop('logged_in', None)
     return redirect(url_for('index'))
 
-# @app.route('/user/<int:id>/')
-# def show_user_info(id):
-#     user = Users.query.get(id)
-#     return render_template('name.html', user=user)
 
 @app.route('/user/<int:id>/')
 def show_user_info(id):
     user = Users.query.get(id)
     photos = Photos.query.filter_by(user_id=id).all()
-    return render_template('name.html', user=user, photos=photos)
+    return render_template('index.html', user=user, photos=photos)
 
 @app.route('/')
 def index():

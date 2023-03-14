@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='customStyle/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
+
+    <link rel="stylesheet" href="https://kit.fontawesome.com/fcac91a160.css" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="content-wrap">
+            <header class="container-fluid text-center header">
+                <div class="row align-items-center p-3">
+                    <div class="col text-end">
+                        <p>Different world...</p>
+                    </div>
+                    <div class="col-md-auto">
+                        <img src="/static/picture/logo.png" alt="" class="logo_img">
+                    </div>
+                    <div class="col text-start">
+                        <p>throught special eyes</p>
+                    </div>
+                </div>
+            </header>
+            <div class="container-fluid profile_section">
+                <div class="row">
+                    <div class="col text-center">
+                        <img src="/static/images/{{ user.photo }}" alt="" class="profile_img">
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row profile_about gx-5">
+                        <div class="col text-center">
+                            <p class="text-secondary title-name"><span>{{ user.username }}</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile_gutter">
+                    <div class="row">
+                        <div class="col text-center">
+
+                            <p class="profile_desc">Диагноз: <span>{{ user.diagnosis }}</span></p>
+                        </div>
+                        <div class="col text-center">
+
+                            <p class="profile_desc">Продано работ: <span>{{ user.sold }}</span></p>
+                        </div>
+                        <div class="col-md text-center">
+
+                            <p class="profile_desc">Заработано: <span>{{ user.earned }}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid gutter">
+                <div class="profile_gutter">
+                    <div class="col text-center">
+                        <p class="text-secondary title-slider"><span>Работы художника</span></p>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="owl-carousel row">
+                            {% for photo in photos %}
+                            <div class="col slide"> <img src="/static/images/{{ photo.photo }}" class="img_slider" alt=""> </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="container-fluid footer_section">
+            <div class="row">
+                <div class="cow">
+                    <a href={{ user.insta }}><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href={{ user.fb }}><i class="fa-brands fa-square-facebook"></i></a>
+                    <a href={{ user.twitter }}><i class="fa-brands fa-square-twitter"></i></a>
+                </div>
+            </div>
+
+        </footer>
+        <script src="https://kit.fontawesome.com/fcac91a160.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+        </script>
+        <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+        <script>
+            $(document).ready(function() {
+                $(".owl-carousel").owlCarousel({
+                    items: 5,
+                    nav: true,
+                    dots: false,
+                    center: true,
+                    rewind: false,
+                    loop: true,
+                    //  autoplay: true,
+                    responsiveClass: true,
+                    //  autoplayTimeout: 3000,
+                    responsive: {
+                        0: {
+                            items: 1,
+                        },
+                        768: {
+                            items: 5,
+                        },
+                    }
+                });
+            });
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+    </div>
+</body>
+
+</html>
