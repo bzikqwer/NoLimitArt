@@ -11,25 +11,34 @@
     min-height: 100%;
     justify-content: space-between;
 }
+
 .content-wrap {
     flex: 0 1 auto;
 }
 
+a {
+    text-decoration: none;
+}
 
 p {
     margin: 0;
     padding: 0;
 }
 
-html,body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
 }
 
-
 .header {
     font-weight: 600;
+}
+
+.social {
+    position: absolute;
+    right: 4%;
 }
 
 .profile_section {
@@ -49,26 +58,13 @@ html,body {
     overflow: hidden;
 }
 
-.fa-brands {
-    color: #fdfdfd;
-    font-size: 30px;
-}
-.fa-square-instagram:hover {
-    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+.fa-square-instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888', GradientType=1);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: 200ms ease-in-out;
+    font-size: 30PX;
 }
-.fa-square-facebook:hover {
-    color: #3b5998;
-    transition: 200ms ease-in-out;
-}
-.fa-square-twitter:hover {
-    color: #00acee;
-    transition: 200ms ease-in-out;
-}
-
 
 .profile_col {
     width: 170px;
@@ -80,7 +76,7 @@ html,body {
     margin-right: 30px;
 }
 
-.profile_desc span{
+.profile_desc span {
     font-weight: 600;
 }
 
@@ -103,7 +99,6 @@ html,body {
     margin-top: 25px;
 }
 
-
 .img_slider {
     width: calc(var(--index) / 2 * var(--slide_side_wid));
     height: calc(var(--index) / 2 * var(--slide_side_big));
@@ -123,16 +118,15 @@ html,body {
     position: relative;
 }
 
-.footer_section {  
+.footer_section {
     background-color: #e6e6e6;
     display: flex;
     justify-content: center;
     height: 70px;
-    align-items: center;    
-    font-size: 30pt; 
+    align-items: center;
+    font-size: 30pt;
     flex: 0 0 auto;
 }
-
 
 .owl-dot {
     width: 10px;
@@ -155,7 +149,6 @@ html,body {
     background-color: rgb(255, 255, 255);
 }
 
-
 .owl-item {
     transition: transform 400ms ease-in-out;
 }
@@ -165,15 +158,13 @@ html,body {
     margin-right: 20px;
 }
 
-.active:first-child{
+.active:first-child {
     background-color: black;
 }
 
-.slide > .img_slider ~ .img_slider{
+.slide>.img_slider~.img_slider {
     background-color: red;
 }
-
-
 
 .container-sm {
     background-image: url('../picture/BG__.png');
@@ -187,29 +178,32 @@ html,body {
     position: relative;
 }
 
-.owl-item.active.center > div > img {
+.owl-item.active.center>div>img {
     transform: scale(1.8);
     transition: transform 400ms ease-in-out;
     z-index: 1;
 }
 
-
-
-.owl-item.active.center > div > img {
+.owl-item.active.center>div>img {
     object-fit: contain;
 }
 
 .owl-item.active.center {
     z-index: 1000;
 }
+
 .owl-item.active {
     z-index: 1;
 }
+
 .owl-item:nth-child(2) {
-    transform: scale(1.1); /* increase size of middle element */
-    z-index: 999; /* set highest z-index for middle element */
-    margin: 0 auto; /* center element */
-  }
+    transform: scale(1.1);
+    /* increase size of middle element */
+    z-index: 999;
+    /* set highest z-index for middle element */
+    margin: 0 auto;
+    /* center element */
+}
 
 .title-name {
     font-size: 34px;
@@ -222,28 +216,30 @@ html,body {
     padding-top: 30px;
     padding-bottom: 30px;
 }
+
 .profile_desc {
     font-size: 19px;
     font-weight: 400;
 }
+
 .profile_desc span {
     color: #000000;
 }
-.title-name span{
+
+.title-name span {
     position: relative;
 }
 
-
-.title-name span::before{
+.title-name span::before {
     position: absolute;
     content: '';
     width: 100%;
-    background-color: rgb(108,117,125);
+    background-color: rgb(108, 117, 125);
     height: 2px;
     bottom: -10%;
 }
 
-.title-slider span{
+.title-slider span {
     position: relative;
     font-size: 18px;
 }
@@ -255,8 +251,9 @@ html,body {
     width: 10%;
     top: 54%;
     height: 1px;
-    background-color: rgb(108,117,125);    
+    background-color: rgb(108, 117, 125);
 }
+
 .title-slider span::after {
     position: absolute;
     content: '';
@@ -264,7 +261,7 @@ html,body {
     width: 10%;
     top: 54%;
     height: 1px;
-    background-color: rgb(108,117,125);    
+    background-color: rgb(108, 117, 125);
 }
 
 .owl-next {
@@ -278,20 +275,17 @@ html,body {
 }
 
 .owl-prev,
-.owl-next
-{
+.owl-next {
     border: none;
     font-size: 100px;
     background: none;
     color: #202020;
 }
 
-
 .owl-carousel .owl-stage-outer {
-    padding-top: 50px;
+    padding-top: 28px;
     padding-bottom: 50px;
 }
-
 
 .owl-carousel {
     position: relative;
@@ -300,24 +294,48 @@ html,body {
 .owl-carousel::before {
     position: absolute;
     content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 48%, rgba(255,255,255,0) 88%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 48%, rgba(255, 255, 255, 0) 88%);
     height: 100%;
     width: 18%;
     z-index: 1000;
     top: 0%;
     left: 0%;
 }
+
 .owl-carousel::after {
     position: absolute;
     content: '';
-    background: rgb(255,255,255);
-background: linear-gradient(90deg, rgba(255,255,255,0) 15%, rgba(255,255,255,1) 47%);
+    background: rgb(255, 255, 255);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 15%, rgba(255, 255, 255, 1) 47%);
     height: 100%;
     width: 24%;
     z-index: 1000;
     top: 0%;
     right: -7%;
+}
+
+img.pt_logo {
+    max-height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    max-width: 50px;
+    object-fit: cover;
+}
+
+.partner_gutter {
+    padding-bottom: 10px;
+}
+
+.partner_section {
+    background-color: #e6e6e6;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    flex-direction: column;
 }
 
 @media (max-width: 720px) {
@@ -368,7 +386,7 @@ background: linear-gradient(90deg, rgba(255,255,255,0) 15%, rgba(255,255,255,1) 
     .owl-carousel .owl-stage-outer {
         padding-top: 30px;
     }
-    .owl-item.active.center > div > img {
+    .owl-item.active.center>div>img {
         transform: scale(2.6)!important;
     }
     .owl-carousel::after {
@@ -380,6 +398,7 @@ background: linear-gradient(90deg, rgba(255,255,255,0) 15%, rgba(255,255,255,1) 
     .gutter {
         background-size: 70%;
     }
+    .social {
+        position: inherit;
+    }
 }
-
-

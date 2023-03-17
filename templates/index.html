@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}">
 
     <link rel="stylesheet" href="https://kit.fontawesome.com/fcac91a160.css" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Different world</title>
 </head>
 
 <body>
@@ -29,6 +29,9 @@
                     </div>
                     <div class="col text-start">
                         <p>throught special eyes</p>
+                    </div>
+                    <div class="col-md text-end social">
+                        <a href="https://www.instagram.com/no_limit_art_/?igshid=ZDdkNTZiNTM%3D"><i class="fa-brands fa-square-instagram"></i></a>
                     </div>
                 </div>
             </header>
@@ -81,16 +84,23 @@
             </div>
         </div>
 
-        <footer class="container-fluid footer_section">
-            <div class="row">
-                <div class="cow">
-                    <a href={{ user.insta }}><i class="fa-brands fa-square-instagram"></i></a>
-                    <a href={{ user.fb }}><i class="fa-brands fa-square-facebook"></i></a>
-                    <a href={{ user.twitter }}><i class="fa-brands fa-square-twitter"></i></a>
-                </div>
+        <div class="container_fluid partner_section">
+        <div class="row">
+            <div class="col text-center">
+                <p class="text-secondary title-slider partner_gutter"><span>Партнёры</span></p>
             </div>
-
-        </footer>
+        </div>
+        <div class="row text-center">
+            <div class="col">
+                <a href="https://www.aulresort.net/">
+                    <img src="/static/img/partner_logo.png" class="pt_logo" alt="">
+                </a>
+                <a href="https://kazakhstan.unfpa.org/ru/%D1%8E%D0%BD%D1%84%D0%BF%D0%B0-%D0%B2-%D0%BA%D0%B0%D0%B7%D0%B0%D1%85%D1%81%D1%82%D0%B0%D0%BD%D0%B5">
+                    <img src="/static/img/partner_logo2.png" class="pt_logo" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
         <script src="https://kit.fontawesome.com/fcac91a160.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
         </script>
